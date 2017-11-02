@@ -468,14 +468,14 @@ body {
 .header-inner {
   margin: 0 auto;
   padding: 100px 0 70px;
-  width: 700px;
+  width: 80%;
 }
 .main {
   padding-bottom: 150px;
 }
 .main-inner {
   margin: 0 auto;
-  width: 700px;
+  width: 80%;
 }
 @media (min-width: 1600px) {
   .container .main-inner {
@@ -492,7 +492,7 @@ body {
 .footer-inner {
   box-sizing: border-box;
   margin: 20px auto;
-  width: 700px;
+  width: 80%;
 }
 @media (min-width: 1600px) {
   .container .footer-inner {
@@ -1714,7 +1714,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #574b0e;
+  background: #da4109;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2362,7 +2362,7 @@ a.search-result {
   }
 }
 .container .main-inner {
-  width: 960px;
+  width: 100%;
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .container .main-inner {
@@ -2377,10 +2377,10 @@ a.search-result {
 .content-wrap {
   float: right;
   box-sizing: border-box;
-  padding: 40px;
-  width: 700px;
+  padding: 25px;
+  width: 80%;
   background: #fff;
-  min-height: 700px;
+  min-height: 50%;
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .content-wrap {
@@ -2417,7 +2417,7 @@ a.search-result {
   display: none;
 }
 .footer-inner {
-  width: 960px;
+  width: 100%;
 }
 .footer-inner:before {
   content: " ";
