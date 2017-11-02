@@ -42,7 +42,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexTD" />
+  <meta name="keywords" content="shell,linux," />
 
 
 
@@ -60,16 +60,18 @@
 
 
 
-<meta name="description" content="是该做点有意义的事了">
-<meta property="og:type" content="website">
-<meta property="og:title" content="懒猫叔的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="最近有些闲的蛋疼，准备搞点事情。 准备一个集群的hosts文件123456127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4::1         localhost localhost.localdomain localhost6 localhost6.localdomain6192.168">
+<meta name="keywords" content="shell,linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hadoop安装自动化脚本">
+<meta property="og:url" content="http://yoursite.com/2017/11/02/auto_deploy_bash/index.html">
 <meta property="og:site_name" content="懒猫叔的博客">
-<meta property="og:description" content="是该做点有意义的事了">
+<meta property="og:description" content="最近有些闲的蛋疼，准备搞点事情。 准备一个集群的hosts文件123456127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4::1         localhost localhost.localdomain localhost6 localhost6.localdomain6192.168">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-11-02T09:03:05.913Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="懒猫叔的博客">
-<meta name="twitter:description" content="是该做点有意义的事了">
+<meta name="twitter:title" content="Hadoop安装自动化脚本">
+<meta name="twitter:description" content="最近有些闲的蛋疼，准备搞点事情。 准备一个集群的hosts文件123456127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4::1         localhost localhost.localdomain localhost6 localhost6.localdomain6192.168">
 
 
 
@@ -90,9 +92,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/11/02/auto_deploy_bash/"/>
 
-  <title> 懒猫叔的博客 </title>
+  <title> Hadoop安装自动化脚本 | 懒猫叔的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -113,9 +115,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-right 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
     <div class="headband"></div>
     
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader" style="background-image: url('/images/e1528e651c0607eb0cb11c47ce19c718.jpg');">
@@ -197,6 +197,25 @@
 </nav>
 
  </div>
+      <div class="header-post"> 
+  <div class="post-header">
+      <div class="tags">
+      
+        <a href="/tags/shell/" rel="tag" title="shell">shell</a>
+      
+        <a href="/tags/linux/" rel="tag" title="linux">linux</a>
+      
+      </div>
+      <h1>Hadoop安装自动化脚本</h1>
+      <h2 class="subtitle"></h2>
+      <div class="post-time">
+        <span class="post-meta-item-text">发表于 </span>
+        <time itemprop="dateCreated" datetime="2017-11-02T16:52:06+08:00" content="2017-11-02" title="2017-11-02 16:52:06">
+          2017-11-02
+        </time>
+      </div>
+  </div>
+ </div>
     </header>
 
 
@@ -205,9 +224,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -227,10 +246,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2017/11/02/auto_deploy_bash/" itemprop="url">
-                  Hadoop安装自动化脚本
-                </a>
+                Hadoop安装自动化脚本
               
             
           </h1>
@@ -289,42 +305,52 @@
       
 
       
-        
-          
-            <p>最近有些闲的蛋疼，准备搞点事情。</p>
+        <p>最近有些闲的蛋疼，准备搞点事情。</p>
 <h2 id="准备一个集群的hosts文件"><a href="#准备一个集群的hosts文件" class="headerlink" title="准备一个集群的hosts文件"></a>准备一个集群的hosts文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4</div><div class="line">::1         localhost localhost.localdomain localhost6 localhost6.localdomain6</div><div class="line">192.168.56.110	bgn1</div><div class="line">192.168.56.111	bgn2</div><div class="line">192.168.56.112	bgn3</div><div class="line">192.168.56.113	bgn4</div></pre></td></tr></table></figure>
 <h2 id="ssh免密码脚本"><a href="#ssh免密码脚本" class="headerlink" title="ssh免密码脚本"></a>ssh免密码脚本</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/sh</span></div><div class="line">root_passwd=e61bf904216f49febd95ea8ede0def13</div><div class="line">hadoop_passwd=2591119e9bed4fe797cddc070435ce73</div><div class="line">root_home=/root</div><div class="line">hadoop_home=/home/hadoop</div><div class="line"></div><div class="line">touch <span class="variable">$&#123;root_home&#125;</span>/passwd.sh</div><div class="line"><span class="built_in">echo</span> <span class="string">"echo <span class="variable">$&#123;root_passwd&#125;</span>"</span> &gt; <span class="variable">$&#123;root_home&#125;</span>/passwd.sh;chmod +777 <span class="variable">$&#123;root_home&#125;</span>/passwd.sh</div><div class="line"></div><div class="line"><span class="function"><span class="title">local_scp</span></span>()&#123;</div><div class="line"><span class="keyword">if</span> [ <span class="string">"<span class="variable">$&#123;2&#125;</span>"</span> = <span class="string">"root"</span> ]; <span class="keyword">then</span></div><div class="line">	setsid env SSH_ASKPASS=<span class="string">"<span class="variable">$&#123;root_home&#125;</span>/passwd.sh"</span> DISPLAY=<span class="string">'none:0'</span> scp -o StrictHostKeyChecking=no <span class="variable">$&#123;3&#125;</span> <span class="variable">$&#123;2&#125;</span>@<span class="variable">$&#123;1&#125;</span>:~</div><div class="line"><span class="keyword">fi</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> [ <span class="string">"<span class="variable">$&#123;2&#125;</span>"</span> = <span class="string">"hadoop"</span> ]; <span class="keyword">then</span></div><div class="line">	setsid env SSH_ASKPASS=<span class="string">"<span class="variable">$&#123;hadoop_home&#125;</span>/passwd.sh"</span> DISPLAY=<span class="string">'none:0'</span> scp -o StrictHostKeyChecking=no <span class="variable">$&#123;3&#125;</span> <span class="variable">$&#123;2&#125;</span>@<span class="variable">$&#123;1&#125;</span>:~</div><div class="line"><span class="keyword">fi</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="title">local_ssh</span></span>()&#123;</div><div class="line"><span class="keyword">if</span> [ <span class="string">"<span class="variable">$&#123;2&#125;</span>"</span> = <span class="string">"root"</span> ]; <span class="keyword">then</span></div><div class="line">	setsid env SSH_ASKPASS=<span class="string">"<span class="variable">$&#123;root_home&#125;</span>/passwd.sh"</span> DISPLAY=<span class="string">'none:0'</span> ssh -o StrictHostKeyChecking=no <span class="variable">$&#123;2&#125;</span>@<span class="variable">$&#123;1&#125;</span> <span class="string">"<span class="variable">$&#123;3&#125;</span>"</span></div><div class="line"><span class="keyword">fi</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> [ <span class="string">"<span class="variable">$&#123;2&#125;</span>"</span> = <span class="string">"hadoop"</span> ]; <span class="keyword">then</span></div><div class="line">	setsid env SSH_ASKPASS=<span class="string">"<span class="variable">$&#123;hadoop_home&#125;</span>/passwd.sh"</span> DISPLAY=<span class="string">'none:0'</span> ssh -o StrictHostKeyChecking=no <span class="variable">$&#123;2&#125;</span>@<span class="variable">$&#123;1&#125;</span> <span class="string">"<span class="variable">$&#123;3&#125;</span>"</span></div><div class="line"><span class="keyword">fi</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="title">put_hosts</span></span>()&#123;</div><div class="line">	<span class="built_in">local</span> IFS=$<span class="string">'\n'</span></div><div class="line">	<span class="keyword">for</span>  line  <span class="keyword">in</span> `cat hosts`</div><div class="line">	<span class="keyword">do</span></div><div class="line">		<span class="built_in">local</span> ip=`<span class="built_in">echo</span> <span class="string">"<span class="variable">$line</span>"</span> | cut -f 1`</div><div class="line">		<span class="keyword">if</span> [[ <span class="variable">$&#123;#ip&#125;</span> -lt 16 ]]; <span class="keyword">then</span></div><div class="line">			<span class="built_in">echo</span> <span class="string">"<span class="variable">$&#123;ip&#125;</span> put hosts"</span></div><div class="line">			local_scp <span class="variable">$&#123;ip&#125;</span> root hosts</div><div class="line">		<span class="keyword">fi</span></div><div class="line">	<span class="keyword">done</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="title">alter_hosts</span></span>()&#123;</div><div class="line">	<span class="built_in">local</span> IFS=$<span class="string">'\n'</span></div><div class="line">	<span class="keyword">for</span>  line  <span class="keyword">in</span>  `cat hosts`</div><div class="line">	<span class="keyword">do</span></div><div class="line">		<span class="built_in">local</span> ip=`<span class="built_in">echo</span> <span class="string">"<span class="variable">$line</span>"</span> | cut -f 1`</div><div class="line">		<span class="keyword">if</span> [[ <span class="variable">$&#123;#ip&#125;</span> -lt 16 ]]; <span class="keyword">then</span></div><div class="line">			<span class="built_in">echo</span> <span class="string">"<span class="variable">$&#123;ip&#125;</span> put alter hosts"</span></div><div class="line">			local_ssh <span class="variable">$&#123;ip&#125;</span> root <span class="string">"cat <span class="variable">$&#123;root_home&#125;</span>/hosts &gt; /etc/hosts"</span></div><div class="line">		<span class="keyword">fi</span></div><div class="line">		<span class="built_in">local</span> host=`<span class="built_in">echo</span> <span class="string">"<span class="variable">$line</span>"</span> | cut -f 2`</div><div class="line">		<span class="keyword">if</span> [[ <span class="variable">$&#123;#host&#125;</span> -lt 10 ]]; <span class="keyword">then</span></div><div class="line">			<span class="built_in">echo</span> <span class="string">"<span class="variable">$&#123;host&#125;</span> hostname chance"</span></div><div class="line">			local_ssh <span class="variable">$&#123;ip&#125;</span> root <span class="string">"hostnamectl --static set-hostname <span class="variable">$&#123;host&#125;</span>"</span></div><div class="line">		<span class="keyword">fi</span></div><div class="line">	<span class="keyword">done</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="title">user_hadoop</span></span>()&#123;</div><div class="line">	<span class="built_in">local</span> IFS=$<span class="string">'\n'</span></div><div class="line">	<span class="keyword">for</span>  line  <span class="keyword">in</span>  `cat hosts`</div><div class="line">	<span class="keyword">do</span></div><div class="line">		<span class="built_in">local</span> host=`<span class="built_in">echo</span> <span class="string">"<span class="variable">$line</span>"</span> | cut -f 2`</div><div class="line">		<span class="keyword">if</span> [[ <span class="variable">$&#123;#host&#125;</span> -lt 10 ]]; <span class="keyword">then</span></div><div class="line">			<span class="built_in">echo</span> <span class="string">"<span class="variable">$&#123;host&#125;</span> create user hadoop"</span></div><div class="line">			local_ssh <span class="variable">$&#123;host&#125;</span> root <span class="string">"userdel -rf hadoop;useradd hadoop;echo 'hadoop:<span class="variable">$&#123;hadoop_passwd&#125;</span>' | chpasswd"</span></div><div class="line">			<span class="built_in">echo</span> <span class="string">"<span class="variable">$&#123;host&#125;</span> create passwd.sh hadoop"</span></div><div class="line">			local_ssh <span class="variable">$&#123;host&#125;</span> root <span class="string">"echo 'echo <span class="variable">$&#123;hadoop_passwd&#125;</span>' &gt; <span class="variable">$&#123;hadoop_home&#125;</span>/passwd.sh;chmod +777 <span class="variable">$&#123;hadoop_home&#125;</span>/passwd.sh;chown hadoop:hadoop <span class="variable">$&#123;hadoop_home&#125;</span>/passwd.sh"</span></div><div class="line">		<span class="keyword">fi</span></div><div class="line">	<span class="keyword">done</span></div><div class="line">	<span class="keyword">for</span>  line  <span class="keyword">in</span>  `cat hosts`</div><div class="line">	<span class="keyword">do</span></div><div class="line">		<span class="built_in">local</span> host=`<span class="built_in">echo</span> <span class="string">"<span class="variable">$line</span>"</span> | cut -f 2`</div><div class="line">		<span class="keyword">if</span> [[ <span class="variable">$&#123;#host&#125;</span> -lt 10 ]]; <span class="keyword">then</span></div><div class="line">			<span class="built_in">echo</span> <span class="string">"<span class="variable">$&#123;host&#125;</span> create user hadoop .ssh rsa"</span></div><div class="line">			local_ssh <span class="variable">$&#123;host&#125;</span> hadoop <span class="string">"rm -rf <span class="variable">$&#123;hadoop_home&#125;</span>/.ssh;ssh-keygen -t rsa"</span></div><div class="line">		<span class="keyword">fi</span></div><div class="line">	<span class="keyword">done</span></div><div class="line">	<span class="keyword">for</span>  line  <span class="keyword">in</span>  `cat hosts`</div><div class="line">	<span class="keyword">do</span></div><div class="line">		<span class="built_in">local</span> host=`<span class="built_in">echo</span> <span class="string">"<span class="variable">$line</span>"</span> | cut -f 2`</div><div class="line">		<span class="keyword">for</span>  line2  <span class="keyword">in</span>  `cat hosts`</div><div class="line">		<span class="keyword">do</span></div><div class="line">			<span class="built_in">local</span> host2=`<span class="built_in">echo</span> <span class="string">"<span class="variable">$line2</span>"</span> | cut -f 2`</div><div class="line">			<span class="keyword">if</span> [[ <span class="variable">$&#123;#host&#125;</span> -lt 10 &amp;&amp; <span class="variable">$&#123;#host2&#125;</span> -lt 10 ]]; <span class="keyword">then</span></div><div class="line">			<span class="built_in">echo</span> <span class="string">"<span class="variable">$&#123;host&#125;</span> put user hadoop .ssh rsa to <span class="variable">$&#123;host2&#125;</span>"</span></div><div class="line">			local_ssh <span class="variable">$&#123;host&#125;</span> hadoop <span class="string">"touch <span class="variable">$&#123;hadoop_home&#125;</span>/passwd.sh;setsid env SSH_ASKPASS='<span class="variable">$&#123;hadoop_home&#125;</span>/passwd.sh' DISPLAY='none:0' scp -o StrictHostKeyChecking=no <span class="variable">$&#123;hadoop_home&#125;</span>/.ssh/id_rsa.pub hadoop@<span class="variable">$&#123;host2&#125;</span>:<span class="variable">$&#123;hadoop_home&#125;</span>/.ssh/id_rsa.pub_<span class="variable">$&#123;host&#125;</span>"</span></div><div class="line">			<span class="keyword">fi</span></div><div class="line">		<span class="keyword">done</span></div><div class="line">	<span class="keyword">done</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="title">auto_key</span></span>()&#123;</div><div class="line">	<span class="built_in">local</span> IFS=$<span class="string">'\n'</span></div><div class="line">	<span class="keyword">for</span>  line  <span class="keyword">in</span>  `cat hosts`</div><div class="line">	<span class="keyword">do</span></div><div class="line">		<span class="built_in">local</span> host=`<span class="built_in">echo</span> <span class="string">"<span class="variable">$line</span>"</span> | cut -f 2`</div><div class="line">		<span class="keyword">if</span> [[ <span class="variable">$&#123;#host&#125;</span> -lt 10 ]]; <span class="keyword">then</span></div><div class="line">			<span class="built_in">echo</span> <span class="string">"<span class="variable">$&#123;host&#125;</span> add auto_key"</span></div><div class="line">			local_ssh <span class="variable">$&#123;host&#125;</span> hadoop <span class="string">"rm -rf <span class="variable">$&#123;hadoop_home&#125;</span>/.ssh/authorized_keys;touch <span class="variable">$&#123;hadoop_home&#125;</span>/.ssh/authorized_keys;chmod 600 <span class="variable">$&#123;hadoop_home&#125;</span>/.ssh/authorized_keys;cat <span class="variable">$&#123;hadoop_home&#125;</span>/.ssh/id_rsa.pub_* &gt;&gt; <span class="variable">$&#123;hadoop_home&#125;</span>/.ssh/authorized_keys"</span></div><div class="line">			<span class="built_in">echo</span> <span class="string">"<span class="variable">$&#123;host&#125;</span> remove auto_key"</span></div><div class="line">			local_ssh <span class="variable">$&#123;host&#125;</span> hadoop <span class="string">"rm -rf <span class="variable">$&#123;hadoop_home&#125;</span>/.ssh/id_rsa.pub_*"</span></div><div class="line">		<span class="keyword">fi</span></div><div class="line">	<span class="keyword">done</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="title">remove_key</span></span>()&#123;</div><div class="line">	<span class="built_in">local</span> IFS=$<span class="string">'\n'</span></div><div class="line">	<span class="keyword">for</span>  line  <span class="keyword">in</span>  `cat hosts`</div><div class="line">	<span class="keyword">do</span></div><div class="line">		<span class="built_in">local</span> host=`<span class="built_in">echo</span> <span class="string">"<span class="variable">$line</span>"</span> | cut -f 2`</div><div class="line">		<span class="keyword">if</span> [[ <span class="variable">$&#123;#host&#125;</span> -lt 10 ]]; <span class="keyword">then</span></div><div class="line">			<span class="keyword">if</span> [ <span class="string">"<span class="variable">$&#123;host&#125;</span>"</span> != `hostname` ]; <span class="keyword">then</span></div><div class="line">				<span class="built_in">echo</span> <span class="string">"<span class="variable">$&#123;host&#125;</span> remove passwd.sh"</span></div><div class="line">				local_ssh <span class="variable">$&#123;host&#125;</span> hadoop <span class="string">"rm -rf <span class="variable">$&#123;hadoop_home&#125;</span>/passwd.sh"</span></div><div class="line">				local_ssh <span class="variable">$&#123;host&#125;</span> root <span class="string">"rm -rf <span class="variable">$&#123;root_home&#125;</span>/passwd.sh"</span></div><div class="line">			<span class="keyword">fi</span></div><div class="line">		<span class="keyword">fi</span></div><div class="line">	<span class="keyword">done</span></div><div class="line">	rm -rf <span class="variable">$&#123;root_home&#125;</span>/passwd.sh</div><div class="line">	rm -rf <span class="variable">$&#123;hadoop_home&#125;</span>/passwd.sh</div><div class="line">&#125;</div><div class="line"></div><div class="line">put_hosts</div><div class="line">alter_hosts</div><div class="line">user_hadoop</div><div class="line">auto_key</div><div class="line">remove_key</div></pre></td></tr></table></figure>
 <h2 id="JDK-安装"><a href="#JDK-安装" class="headerlink" title="JDK 安装"></a>JDK 安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/sh</span></div><div class="line">root_passwd=e61bf904216f49febd95ea8ede0def13</div><div class="line">hadoop_passwd=2591119e9bed4fe797cddc070435ce73</div><div class="line">root_home=/root</div><div class="line">hadoop_home=/home/hadoop</div><div class="line"></div><div class="line">touch <span class="variable">$&#123;root_home&#125;</span>/passwd.sh</div><div class="line"><span class="built_in">echo</span> <span class="string">"echo <span class="variable">$&#123;root_passwd&#125;</span>"</span> &gt; <span class="variable">$&#123;root_home&#125;</span>/passwd.sh;chmod +777 <span class="variable">$&#123;root_home&#125;</span>/passwd.sh</div><div class="line"></div><div class="line"><span class="function"><span class="title">local_scp</span></span>()&#123;</div><div class="line"><span class="keyword">if</span> [ <span class="string">"<span class="variable">$&#123;2&#125;</span>"</span> = <span class="string">"root"</span> ]; <span class="keyword">then</span></div><div class="line">	setsid env SSH_ASKPASS=<span class="string">"<span class="variable">$&#123;root_home&#125;</span>/passwd.sh"</span> DISPLAY=<span class="string">'none:0'</span> scp -o StrictHostKeyChecking=no <span class="variable">$&#123;3&#125;</span> <span class="variable">$&#123;2&#125;</span>@<span class="variable">$&#123;1&#125;</span>:~</div><div class="line"><span class="keyword">fi</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> [ <span class="string">"<span class="variable">$&#123;2&#125;</span>"</span> = <span class="string">"hadoop"</span> ]; <span class="keyword">then</span></div><div class="line">	setsid env SSH_ASKPASS=<span class="string">"<span class="variable">$&#123;hadoop_home&#125;</span>/passwd.sh"</span> DISPLAY=<span class="string">'none:0'</span> scp -o StrictHostKeyChecking=no <span class="variable">$&#123;3&#125;</span> <span class="variable">$&#123;2&#125;</span>@<span class="variable">$&#123;1&#125;</span>:~</div><div class="line"><span class="keyword">fi</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="title">local_ssh</span></span>()&#123;</div><div class="line"><span class="keyword">if</span> [ <span class="string">"<span class="variable">$&#123;2&#125;</span>"</span> = <span class="string">"root"</span> ]; <span class="keyword">then</span></div><div class="line">	setsid env SSH_ASKPASS=<span class="string">"<span class="variable">$&#123;root_home&#125;</span>/passwd.sh"</span> DISPLAY=<span class="string">'none:0'</span> ssh -o StrictHostKeyChecking=no <span class="variable">$&#123;2&#125;</span>@<span class="variable">$&#123;1&#125;</span> <span class="string">"<span class="variable">$&#123;3&#125;</span>"</span></div><div class="line"><span class="keyword">fi</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> [ <span class="string">"<span class="variable">$&#123;2&#125;</span>"</span> = <span class="string">"hadoop"</span> ]; <span class="keyword">then</span></div><div class="line">	setsid env SSH_ASKPASS=<span class="string">"<span class="variable">$&#123;hadoop_home&#125;</span>/passwd.sh"</span> DISPLAY=<span class="string">'none:0'</span> ssh -o StrictHostKeyChecking=no <span class="variable">$&#123;2&#125;</span>@<span class="variable">$&#123;1&#125;</span> <span class="string">"<span class="variable">$&#123;3&#125;</span>"</span></div><div class="line"><span class="keyword">fi</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="title">install_jdk</span></span>()&#123;</div><div class="line">	<span class="built_in">local</span> IFS=$<span class="string">'\n'</span></div><div class="line">	<span class="keyword">for</span>  line  <span class="keyword">in</span> `cat hosts`</div><div class="line">	<span class="keyword">do</span></div><div class="line">		<span class="built_in">local</span> host=`<span class="built_in">echo</span> <span class="string">"<span class="variable">$line</span>"</span> | cut -f 2`</div><div class="line">		<span class="keyword">if</span> [[ <span class="variable">$&#123;#host&#125;</span> -lt 10 ]]; <span class="keyword">then</span></div><div class="line">			<span class="built_in">echo</span> <span class="string">"<span class="variable">$&#123;host&#125;</span> put jdk"</span></div><div class="line">			local_scp <span class="variable">$&#123;host&#125;</span> root lib/jdk7u79linuxx64.tar.gz</div><div class="line">			local_ssh <span class="variable">$&#123;host&#125;</span> root <span class="string">"tar -zxvf <span class="variable">$&#123;root_home&#125;</span>/jdk7u79linuxx64.tar.gz -C /usr/local;rm -rf <span class="variable">$&#123;root_home&#125;</span>/jdk7u79linuxx64.tar.gz"</span></div><div class="line">			<span class="keyword">if</span> [[ <span class="variable">$&#123;#`cat /etc/profile | grep JAVA_HOME=`&#125;</span> -lt 1 ]]; <span class="keyword">then</span></div><div class="line">				<span class="built_in">echo</span> <span class="string">"export JAVA_HOME=/usr/local/jdk1.7.0_79/"</span> &gt;&gt; /etc/profile</div><div class="line">			<span class="keyword">fi</span></div><div class="line">			<span class="keyword">if</span> [[ <span class="variable">$&#123;#`cat /etc/profile | grep JRE_HOME=$&#123;JAVA_HOME&#125;</span>`&#125; -lt 1 ]]; <span class="keyword">then</span></div><div class="line">				<span class="built_in">echo</span> <span class="string">"export JRE_HOME=<span class="variable">$&#123;JAVA_HOME&#125;</span>/jre"</span> &gt;&gt; /etc/profile</div><div class="line">			<span class="keyword">fi</span></div><div class="line">			<span class="keyword">if</span> [[ <span class="variable">$&#123;#`cat /etc/profile | grep CLASSPATH=.:$\&#123;JAVA_HOME\&#125;</span>`&#125; -lt 1 ]]; <span class="keyword">then</span></div><div class="line">				<span class="built_in">echo</span> <span class="string">"export CLASSPATH=.:<span class="variable">$&#123;JAVA_HOME&#125;</span>/lib:<span class="variable">$&#123;JRE_HOME&#125;</span>/lib:<span class="variable">$CLASSPATH</span>"</span> &gt;&gt; /etc/profile</div><div class="line">			<span class="keyword">fi</span></div><div class="line">			<span class="keyword">if</span> [[ <span class="variable">$&#123;#`cat /etc/profile | grep PATH=$\&#123;JAVA_HOME\&#125;</span>`&#125; -lt 1 ]]; <span class="keyword">then</span></div><div class="line">				<span class="built_in">echo</span> <span class="string">"export PATH=<span class="variable">$&#123;JAVA_HOME&#125;</span>/bin:<span class="variable">$&#123;JRE_HOME&#125;</span>/bin:<span class="variable">$PATH</span>"</span> &gt;&gt; /etc/profile</div><div class="line">			<span class="keyword">fi</span></div><div class="line">		<span class="keyword">fi</span></div><div class="line">	<span class="keyword">done</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">install_jdk</div></pre></td></tr></table></figure>
-          
+        所有文章非特别说明皆为原创。技术更迭迅猛，部分内容可能会作修改，为保证信息与源同步，转载时请务必注明文章出处！谢谢合作 :-)
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <footer class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/shell/" rel="tag">#shell</a>
+          
+            <a href="/tags/linux/" rel="tag">#linux</a>
+          
+        </div>
       
 
       
+
       
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
           
           </div>
@@ -332,6 +358,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -351,8 +381,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/096fcaea2328dfca0c73179954cf52bf.jpg"
@@ -426,6 +465,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备一个集群的hosts文件"><span class="nav-number">1.</span> <span class="nav-text">准备一个集群的hosts文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ssh免密码脚本"><span class="nav-number">2.</span> <span class="nav-text">ssh免密码脚本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JDK-安装"><span class="nav-number">3.</span> <span class="nav-text">JDK 安装</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -530,6 +580,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
